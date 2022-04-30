@@ -1,22 +1,21 @@
 import turtle
 import random
+from sys import exit
 
 def init():
     turtle.bgcolor("#FFFFFF")
 
     global pen
-    pen = turtle.Turtle()
+    pen = turtle.Turtle(visible=False)
 
     global pen2
-    pen2 = turtle.Turtle()
+    pen2 = turtle.Turtle(visible=False)
 
-    pen.hideturtle(); pen2.hideturtle()
     pen.speed(0); pen2.speed(0)
     pen.pu(); pen2.pu()
 
     global points
     points = [[-300,-250],  [0,250], [300,-250]]
-
 
     for i in range(3):
         pen.setpos(points[i])
@@ -24,8 +23,13 @@ def init():
     return()
     
 def User_input():
-    inp = int(input("Color? 0 = black 1 = purple 2 = green 3 = fuchsia\n>"))
     
+    try:
+        inp = int(input("Color? 0 = black 1 = purple 2 = green 3 = fuchsia\n>"))
+    except:
+        print("\nError: Yes strings crash the programme idc lol\n")
+        exit()
+
     global colours
     colour = [
     ["#000000"], 
@@ -34,7 +38,11 @@ def User_input():
     ["#e95670", "#b34270", "#713770", "#432f70"]]
     colours = colour[inp]
 
-    inp = int(input("enter size of dots 0-10\n>"))
+    try:
+        inp = int(input("enter size of dots 0-10\n>"))
+    except:
+        print("\nError: Yes strings crash the programme idc lol\n")
+        exit()
 
     global DS
     DS = inp
