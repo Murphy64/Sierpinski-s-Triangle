@@ -2,7 +2,7 @@ import turtle
 import random
 
 def init():
-    turtle.bgcolor("#CCCCCC")
+    turtle.bgcolor("#FFFFFF")
 
     global pen
     pen = turtle.Turtle()
